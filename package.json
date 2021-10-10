@@ -1,0 +1,43 @@
+{
+  "name": "electron-sveltekit",
+  "version": "0.0.1",
+  "main": "src/electron.cjs",
+  "scripts": {
+    "dev": "NODE_ENV=dev npm run dev:all",
+    "dev:all": "concurrently -n=svelte,electron -c='#ff3e00',blue \"npm run dev:svelte\" \"npm run dev:electron\"",
+    "dev:svelte": "svelte-kit dev",
+    "dev:electron": "electron src/electron.cjs",
+    "build": "cross-env NODE_ENV=production npm run build:svelte && npm run build:electron",
+    "build:svelte": "svelte-kit build",
+    "build:electron": "electron-builder -mwl --config build.config.json",
+    "start": "svelte-kit start"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.20",
+    "@sveltejs/kit": "next",
+    "@types/cookie": "^0.4.1",
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^15.1.2",
+    "electron-builder": "^22.13.1",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "*",
+    "electron-reloader": "^1.2.1",
+    "svelte": "^3.34.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.9.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3",
+    "vite-plugin-windicss": "^1.4.10",
+    "windicss": "^3.1.9"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/fira-mono": "^4.5.0",
+    "@lukeed/uuid": "^2.0.0",
+    "cookie": "^0.4.1",
+    "electron-context-menu": "^3.1.1",
+    "electron-serve": "^1.1.0",
+    "electron-window-state": "^5.0.3"
+  }
+}

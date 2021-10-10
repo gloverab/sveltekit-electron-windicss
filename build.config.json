@@ -1,0 +1,14 @@
+{
+	"appId": "com.example.app",
+	"productName": "Electron With Sveltekit and Windicss",
+	"directories": {
+		"output": "dist"
+	},
+	"files": [
+		"src/electron.cjs",
+		{
+			"from": "build",
+			"to": ""
+		}
+	]
+}
